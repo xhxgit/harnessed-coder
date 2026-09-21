@@ -1,0 +1,33 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "harnessed-coder"
+version = "0.1.0"
+description = "A coding agent built to explore, understand, and evaluate agent harness engineering practices."
+requires-python = ">=3.14"
+dependencies = [
+    "binaryornot>=0.6.0",
+    "charset-normalizer>=3.4.7",
+    "mcp==2.0.0",
+    "openai>=1.0.0",
+    "prompt-toolkit>=3.0.52",
+    "PyYAML>=6.0.3",
+    "tiktoken>=0.13.0",
+]
+
+[project.scripts]
+harnessed-coder = "harnessed_coder:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/harnessed_coder"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[dependency-groups]
+dev = [
+    "pyright>=1.1.409",
+    "pytest>=9.1.1",
+]
